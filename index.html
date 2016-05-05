@@ -24,7 +24,7 @@
                 right: 0;
             }
             input[type="text"] {
-              display: block;
+              display: inline-block;
               margin: 0;
               width: 90%;
               font-family: sans-serif;
@@ -47,6 +47,18 @@
             }
             h1 {
                 width: 100%;
+            }
+            button {
+                display: inline-block;
+                background-color: #abafaf;
+                border: none;
+                color: white;
+                width: 92.5%;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
             }
             .footer {
                 position: fixed;
@@ -90,16 +102,19 @@
         <div class="center">
             <h2>Say</h2>
             <h5 id="subtext">When letters aren't enough</h5>
-            <input id="sayInput" type="text" placeholder="type something" />
+            <input id="sayInput" type="text" placeholder="type something" /><button id="btnDecode">Decode</button>
             <h3 id="sayOutput"></h3>
         </div>
         <script src="saywhat.js"></script>
         <script>
             setTimeout(function(){
-                document.querySelector('#subtext').innerHTML = window.Say(document.querySelector('#subtext').innerHTML);
+                document.querySelector('#subtext').innerHTML = window.Say.encode(document.querySelector('#subtext').innerHTML);
             }, 5000)
             document.querySelector('#sayInput').onkeyup = function() {
-                document.querySelector('#sayOutput').innerHTML = window.Say(document.querySelector('#sayInput').value);
+                document.querySelector('#sayOutput').innerHTML = window.Say.encode(document.querySelector('#sayInput').value);
+            }
+            document.querySelector('#btnDecode').onclick = function() {
+                document.querySelector('#sayOutput').innerHTML = window.Say.decode(document.querySelector('#sayInput').value);
             }
         </script>
         <div class="footer">
