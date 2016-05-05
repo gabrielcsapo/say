@@ -1,17 +1,17 @@
 {
   "name": "saywhat",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "when words are simply not enough",
   "main": "saywhat.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gabrielcsapo/say.git"
+    "url": "git+https://github.com/gabrielcsapo/saywhat.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gabrielcsapo/say/issues"
+    "url": "https://github.com/gabrielcsapo/saywhat/issues"
   },
-  "homepage": "https://github.com/gabrielcsapo/say#readme"
+  "homepage": "https://github.com/gabrielcsapo/saywhat#readme"
 }
