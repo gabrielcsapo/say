@@ -1,5 +1,5 @@
 var character_map = {
-    'A': ["Ą", "💧", "Д", "Å", "∧", "ᐃ", "@", "ᥪ", "𝚫", "ᕕ", "🌀"],
+    'A': ["Ą", "💧", "Д", "Å", "ᐃ", "@", "ᥪ", "𝚫", "ᕕ", "🌀"],
     'B': ["ϐ", "ᵦ", "฿", "𝟾", "8"],
     'C': ["Ꞇ", "⸦", "ᙅ", "🌊"],
     'D': ["𐌃", "⌷", "ŋ", "ე"],
@@ -27,25 +27,73 @@ var character_map = {
     'Z': ["ℤ", "೭", "2", "ƻ", "ϩ", "💤"]
 };
 
-var Say = function(input) {
-    var out = "";
-    input.split('').forEach(function(letter) {
-        letter = letter.toUpperCase();
-        if(character_map[letter]) {
-            var length = character_map[letter].length;
-            if (length > 0) {
-                // get a random index of the array
-                var index = Math.floor((Math.random() * length) + 0);
-                out += character_map[letter][index];
+// TODO: ew 
+var splitEmojis = function (str) {
+  split = str.split(/([\uD800-\uDBFF][\uDC00-\uDFFF])/);
+  arr = [];
+  for (var i=0; i<split.length; i++) {
+    char = split[i]
+    if (char !== "") {
+      arr.push(char);
+    }
+  }
+  return arr;
+};
+
+var Say = {
+    // TODO: clean this up
+    decode: function(input) {
+        var raw = splitEmojis(input);
+        var out = "";
+        var check = [];
+        raw.forEach(function(val) {
+            console.log(val);
+            console.log(val.length);
+            if(val.length > 2) {
+                val.split('').forEach(function(v){
+                    check.push(v);
+                });
+            } else {
+                check.push(val);
+            }
+        });
+        check.forEach(function(letter) {
+            if(letter == ' ') {
+                out += letter;
+            } else {
+                for(var key in character_map) {
+                    console.log(letter.toString('utf8'));
+                    if(character_map[key].indexOf(letter) > -1) {
+                        console.log(letter);
+                        console.log(key);
+                        out += key;
+                        break;
+                    }
+                }
+            }
+        });
+        return out;
+    },
+    encode: function(input) {
+        var out = "";
+        input.split('').forEach(function(letter) {
+            if(letter.match(/[a-z]/i)) {
+                letter = letter.toUpperCase();
+                var length = character_map[letter].length;
+                if (length > 0) {
+                    // get a random index of the array
+                    var index = Math.floor((Math.random() * length) + 0);
+                    out += character_map[letter][index];
+                } else {
+                    out += letter;
+                }
             } else {
                 out += letter;
             }
-        } else {
-            out += letter;
-        }
-    });
-    return out;
-};
+        });
+        return out;
+    }
+}
 
 if (typeof module === "object" && typeof module.exports === "object" ) {
     module.exports = Say;
