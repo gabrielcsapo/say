@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "when words are simply not enough",
   "main": "saywhat.js",
-  "scripts": {},
+  "scripts": {
+    "build": "node ./lib/build.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gabrielcsapo/saywhat.git"
@@ -15,7 +17,12 @@
   },
   "homepage": "https://github.com/gabrielcsapo/saywhat#readme",
   "devDependencies": {
+    "async": "^2.0.0-rc.3",
+    "canvas": "^1.3.14",
+    "gm": "^1.22.0",
     "grunt": "^1.0.1",
-    "grunt-screenshot": "^0.1.0"
+    "grunt-screenshot": "^0.1.0",
+    "node-phantom-simple": "^2.2.4",
+    "phantomjs": "^2.1.7"
   }
 }
