@@ -5,14 +5,14 @@
 
 > encode
 
-```
+```javascript
 var Say = require('saywhat');
 Say.encode('hello'); // 👬𐎛👡└💞
 ```
 
 > decode
 
-```
+```javascript
 var Say = require('saywhat');
 Say.decode('👬𐎛👡└💞'); // hello
 ```
