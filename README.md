@@ -1,7 +1,7 @@
 # saywhat  
 > http://gabrielcsapo.github.io/saywhat/
 
-# Usage
+## Usage
 
 > encode
 
@@ -17,4 +17,12 @@ var Say = require('saywhat');
 Say.decode('👬𐎛👡└💞'); // hello
 ```
 
->  a special thanks to http://shapecatcher.com/unicode/block/Miscellaneous_Symbols_And_Pictographs
+## Contributions
+
+> help with the comparing of the likeness of symbols!
+
+```bash
+npm run build;
+```
+
+This will screenshot all characters in `/scripts/symbols.js` and output them to the output folder. Once this is done, it will do a visual diff to find the likeness of those characters.
