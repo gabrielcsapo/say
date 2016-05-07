@@ -627,7 +627,6 @@ convert output/emoji/🗞.png -alpha extract -threshold 0 -negate -transparent w
 convert output/emoji/🗡.png -alpha extract -threshold 0 -negate -transparent white output/emoji/🗡.png;
 convert output/emoji/🗣.png -alpha extract -threshold 0 -negate -transparent white output/emoji/🗣.png;
 convert output/emoji/🗨.png -alpha extract -threshold 0 -negate -transparent white output/emoji/🗨.png;
-convert output/emoji/🗪.png -alpha extract -threshold 0 -negate -transparent white output/emoji/🗪.png;
 convert output/emoji/🗯.png -alpha extract -threshold 0 -negate -transparent white output/emoji/🗯.png;
 convert output/emoji/🗳.png -alpha extract -threshold 0 -negate -transparent white output/emoji/🗳.png;
 convert output/emoji/🗺.png -alpha extract -threshold 0 -negate -transparent white output/emoji/🗺.png;
