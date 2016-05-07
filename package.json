@@ -3,7 +3,12 @@
   "version": "0.1.0",
   "description": "when words are simply not enough",
   "main": "saywhat.js",
-  "scripts": {},
+  "scripts": {
+    "test": "./node_modules/.bin/eslint .;./node_modules/.bin/mocha;",
+    "compile": "browserify saywhat.js -o dist/saywhat.js",
+    "build": "node ./scripts/build.js; sh ./scripts/convert_emojis_to_black.sh; npm run compare;",
+    "compare": "node ./scripts/compare.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gabrielcsapo/saywhat.git"
@@ -15,7 +20,13 @@
   },
   "homepage": "https://github.com/gabrielcsapo/saywhat#readme",
   "devDependencies": {
+    "async": "^2.0.0-rc.4",
+    "chai": "^3.5.0",
+    "gm": "^1.22.0",
     "grunt": "^1.0.1",
-    "grunt-screenshot": "^0.1.0"
+    "grunt-screenshot": "^0.1.0",
+    "mocha": "^2.4.5",
+    "phantomjs": "^2.1.7",
+    "progress": "^1.1.8"
   }
 }
