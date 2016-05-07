@@ -22,12 +22,14 @@
   "devDependencies": {
     "async": "^2.0.0-rc.4",
     "chai": "^3.5.0",
+    "eslint": "^2.9.0",
     "gm": "^1.22.0",
     "grunt": "^1.0.1",
     "grunt-screenshot": "^0.1.0",
     "html2png": "^1.1.2",
     "mocha": "^2.4.5",
     "phantomjs": "^2.1.7",
-    "progress": "^1.1.8"
+    "progress": "^1.1.8",
+    "spliddit": "^2.1.1"
   }
 }
