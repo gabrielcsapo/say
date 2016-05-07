@@ -14,7 +14,7 @@ module.exports = function(grunt) {
                 dest: 'main.png',
                 delay: 4850
             }],
-            viewport: ['1920x1080','1024x768','640x960']
+            viewport: ['1920x1080','1024x768','640x960','320x480']
           }
         }
       }
