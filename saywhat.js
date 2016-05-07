@@ -49,14 +49,12 @@ var Say = {
         input.split('').forEach(function(letter) {
             if(letter.match(/[a-z]/i)) {
                 letter = letter.toLowerCase();
-                var length = character_map[letter] ? character_map[letter].length : 0;
-                if (length > 0) {
-                    // get a random index of the array
-                    var index = Math.floor((Math.random() * length) + 0);
-                    out += character_map[letter][index];
-                } else {
-                    out += letter;
-                }
+            }
+            var length = character_map[letter] ? character_map[letter].length : 0;
+            if (length > 0) {
+                // get a random index of the array
+                var index = Math.floor((Math.random() * length) + 0);
+                out += character_map[letter][index];
             } else {
                 out += letter;
             }

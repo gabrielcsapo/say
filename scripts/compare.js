@@ -9,7 +9,9 @@ var match = {};
 var map = {};
 
 var total = Symbols.alphabet_lower.length * Symbols.mathamatical_operators.length +
-            Symbols.alphabet_lower.length * Symbols.emoji.length;
+            Symbols.alphabet_lower.length * Symbols.emoji.length +
+            Symbols.numbers.length * Symbols.mathamatical_operators.length + 
+            Symbols.numbers.length * Symbols.emoji.length;
 
 var bar = new ProgressBar('comparing [:bar] :percent :etas', {
     width: 20,
@@ -42,6 +44,40 @@ var start = Date.now();
 // TODO: refactor this to less waterfallie ;)
 async.parallelLimit([
     function(next) {
+        async.forEachOfSeries(Symbols.numbers, function(numbers, index, outer_callback) {
+            async.forEachOf(Symbols.mathamatical_operators, function(operator, index, callback) {
+                if(operator) {
+                    compare('numbers/' + numbers, 'mathamatical_operators/' + operator, numbers, operator, function() {
+                        callback();
+                    });
+                } else {
+                    callback();
+                }
+            }, function() {
+                outer_callback();
+            });
+        }, function() {
+            next();
+        });
+    },
+    function(next) {
+        async.forEachOfSeries(Symbols.numbers, function(number, index, outer_callback) {
+            async.forEachOfLimit(Symbols.emoji, 15, function(operator, index, callback) {
+                if(operator) {
+                    compare('numbers/' + number, 'emoji/' + operator, number, operator, function() {
+                        callback();
+                    });
+                } else {
+                    callback();
+                }
+            }, function() {
+                outer_callback();
+            });
+        }, function() {
+            next();
+        });
+    },
+    function(next) {
         async.forEachOfSeries(Symbols.alphabet_lower, function(alphabet_lower, index, outer_callback) {
             async.forEachOf(Symbols.mathamatical_operators, function(operator, index, callback) {
                 if(operator) {
@@ -60,7 +96,7 @@ async.parallelLimit([
     },
     function(next) {
         async.forEachOfSeries(Symbols.alphabet_lower, function(alphabet_lower, index, outer_callback) {
-            async.forEachOfLimit(Symbols.emoji, 1, function(operator, index, callback) {
+            async.forEachOfLimit(Symbols.emoji, 15, function(operator, index, callback) {
                 if(operator) {
                     compare('alphabet_lower/' + alphabet_lower, 'emoji/' + operator, alphabet_lower, operator, function() {
                         callback();
@@ -96,7 +132,7 @@ async.parallelLimit([
         var hours = (diff/(1000*60*60))%24;
         console.log('\nCompare took: ', hours, ' hours ', minutes, ' minutes ', seconds, ' seconds'); // eslint-disable-line no-console
         if(err) {
-          console.log(err); // eslint-disable-line no-console
+          throw err;
         }
     });
 });
