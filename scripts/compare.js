@@ -22,7 +22,7 @@ var compare = function(file1, file2, letter, character, callback) {
     var _file1 = path.resolve('output', file1 + '.png')
     var _file2 = path.resolve('output', file2 + '.png')
 
-    gm.compare(_file1, _file2, function(err, isEqual, equality, raw) {
+    gm.compare(_file1, _file2, function(err, isEqual, equality) { // eslint-disable-line no-unused-vars
         // console.log(letter, '<>', character, ' ', equality);
         if(!err) {
             if(!map[character]) {

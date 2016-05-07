@@ -65,7 +65,7 @@ var Say = {
     }
 }
 
-if (window) {
+if (typeof window === "object") {
      window.Say = Say;
 } else if (typeof module === "object" && typeof module.exports === "object" ) {
     module.exports = Say;
