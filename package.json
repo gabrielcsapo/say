@@ -1,6 +1,6 @@
 {
   "name": "saywhat",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "when words are simply not enough",
   "main": "saywhat.js",
   "scripts": {
