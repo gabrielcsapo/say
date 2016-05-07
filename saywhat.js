@@ -1,33 +1,15 @@
 
 var character_map = require('./character_map.json');
-
-// TODO: ew
-var splitEmojis = function (str) {
-  var split = str.split(/([\uD800-\uDBFF][\uDC00-\uDFFF])/);
-  var arr = [];
-  for (var i=0; i<split.length; i++) {
-    var char = split[i]
-    if (char !== "") {
-      arr.push(char);
-    }
-  }
-  return arr;
-};
+var spliddit = require('spliddit');
 
 var Say = {
     // TODO: clean this up
     decode: function(input) {
-        var raw = splitEmojis(input);
+        var raw = spliddit(input)
         var out = "";
         var check = [];
         raw.forEach(function(val) {
-            if(val.length > 2) {
-                val.split('').forEach(function(v){
-                    check.push(v);
-                });
-            } else {
-                check.push(val);
-            }
+            check.push(val);
         });
         check.forEach(function(letter) {
             var val;
@@ -35,7 +17,6 @@ var Say = {
                 if(character_map[key].indexOf(letter) > -1) {
                     val = key;
                     out += key;
-                    break;
                 }
             }
             if(!val) {
