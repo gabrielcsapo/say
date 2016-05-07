@@ -10,7 +10,7 @@ module.exports = function(grunt) {
                 type: 'local',
                 path: '.',
                 port: 8000,
-                src: 'index.html',
+                src: 'index.html?encode=does%20this%20work?',
                 dest: 'main.png',
                 delay: 4850
             }],

@@ -97,18 +97,47 @@
                 -webkit-animation: typing 5s steps(30, end),blink-caret 1s step-end;
                 -moz-animation: typing 5s steps(30, end), blink-caret 1s step-end;
             }
+            .column {
+                float:left;
+                overflow:hidden;
+            }
+            @media (max-width: 400px) {
+                .column {
+                    float: none;
+                    width: 100% !important;
+                    margin-bottom: 2px;
+                }
+            }
         </style>
     </head>
     <body>
         <div class="center">
             <h2>Say</h2>
             <h5 id="subtext">When letters aren't enough</h5>
-            <input id="sayInput" type="text" placeholder="type something" />
-            <button id="btnDecode">Decode</button>
+            <div style="clear:both;height:70px;">
+                <div class="column" style="width:80%;">
+                    <input id="sayInput" type="text" placeholder="type something" />
+                </div>
+                <div class="column" style="width:20%;">
+                    <button id="btnDecode">Decode</button>
+                </div>
+            </div>
             <h3 id="sayOutput"></h3>
         </div>
         <script src="dist/saywhat.js"></script>
         <script>
+            function getParameterByName(name) {
+                var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+                return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+            }
+            if(getParameterByName('encode')) {
+                document.querySelector('#sayInput').value = getParameterByName('encode');
+                document.querySelector('#sayOutput').innerHTML = window.Say.encode(document.querySelector('#sayInput').value);
+            }
+            if(getParameterByName('decode')) {
+                document.querySelector('#sayInput').value = getParameterByName('decode');
+                document.querySelector('#sayOutput').innerHTML = window.Say.decode(document.querySelector('#sayInput').value);
+            }
             setTimeout(function(){
                 document.querySelector('#subtext').innerHTML = window.Say.encode(document.querySelector('#subtext').innerHTML);
             }, 5000)
