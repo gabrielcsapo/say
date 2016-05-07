@@ -29,18 +29,5 @@
     "mocha": "^2.4.5",
     "phantomjs": "^2.1.7",
     "progress": "^1.1.8"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-    "gm": "^1.22.0",
-    "chai": "^3.5.0",
-    "grunt": "^1.0.1",
-    "async": "^2.0.0-rc.4",
-    "html2png": "^1.1.2",
-    "grunt-screenshot": "^0.1.0",
-    "progress": "^1.1.8",
-    "phantomjs": "^2.1.7"
   }
 }
