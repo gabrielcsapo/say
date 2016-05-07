@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/eslint .;",
     "compile": "browserify saywhat.js -o dist/saywhat.js",
-    "build": "node ./scripts/build.js; npm run compare;",
+    "build": "node ./scripts/build.js; sh ./scripts/convert_emojis_to_black.sh; npm run compare;",
     "compare": "node ./scripts/compare.js"
   },
   "repository": {
