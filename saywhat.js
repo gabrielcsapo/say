@@ -30,15 +30,16 @@ var Say = {
             }
         });
         check.forEach(function(letter) {
-            if(letter == ' ') {
-                out += letter;
-            } else {
-                for(var key in character_map) {
-                    if(character_map[key].indexOf(letter) > -1) {
-                        out += key;
-                        break;
-                    }
+            var val;
+            for(var key in character_map) {
+                if(character_map[key].indexOf(letter) > -1) {
+                    val = key;
+                    out += key;
+                    break;
                 }
+            }
+            if(!val) {
+                out += letter;
             }
         });
         return out;

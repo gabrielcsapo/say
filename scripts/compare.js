@@ -6,6 +6,7 @@ var Symbols = require('./symbols');
 var ProgressBar = require('progress');
 
 var match = {};
+var map = {};
 
 var total = Symbols.alphabet_lower.length * Symbols.mathamatical_operators.length +
             Symbols.alphabet_lower.length * Symbols.emoji.length;
@@ -17,27 +18,17 @@ var bar = new ProgressBar('comparing [:bar] :percent :etas', {
     total: total
 });
 
-var compare = function(file1, file2, letter, character, callback, tolerance) {
+var compare = function(file1, file2, letter, character, callback) {
     var _file1 = path.resolve('output', file1 + '.png')
     var _file2 = path.resolve('output', file2 + '.png')
-
-    var options = {
-        file: path.resolve('output', 'diff', letter + '-' + character + '.png')
-    };
-
-    tolerance = tolerance ? tolerance : 0.016;
 
     gm.compare(_file1, _file2, function(err, isEqual, equality, raw) {
         // console.log(letter, '<>', character, ' ', equality);
         if(!err) {
-            if (equality.toFixed(3) <= tolerance) {
-                if (match[letter]) {
-                    match[letter].push(character);
-                } else {
-                    match[letter] = [];
-                    match[letter].push(character);
-                }
+            if(!map[character]) {
+                map[character] = [];
             }
+            map[character].push({letter: letter, equality: equality});
         } else {
             console.log(err); // eslint-disable-line no-console
         }
@@ -48,6 +39,7 @@ var compare = function(file1, file2, letter, character, callback, tolerance) {
 
 var start = Date.now();
 
+// TODO: refactor this to less waterfallie ;)
 async.parallelLimit([
     function(next) {
         async.forEachOfSeries(Symbols.alphabet_lower, function(alphabet_lower, index, outer_callback) {
@@ -55,7 +47,7 @@ async.parallelLimit([
                 if(operator) {
                     compare('alphabet_lower/' + alphabet_lower, 'mathamatical_operators/' + operator, alphabet_lower, operator, function() {
                         callback();
-                    }, 0.016);
+                    });
                 } else {
                     callback();
                 }
@@ -72,9 +64,8 @@ async.parallelLimit([
                 if(operator) {
                     compare('alphabet_lower/' + alphabet_lower, 'emoji/' + operator, alphabet_lower, operator, function() {
                         callback();
-                    }, 0.1);
+                    });
                 } else {
-                    console.log('done ', alphabet_lower)
                     callback();
                 }
             }, function() {
@@ -85,6 +76,18 @@ async.parallelLimit([
         });
     }
 ], 2, function() {
+    for(var key in map) {
+        var max = 100;
+        var selected = '';
+        map[key].forEach(function(m) {
+            if (m.equality < max) {
+                max = m.equality;
+                selected = m.letter;
+            }
+        });
+        if(!match[selected]) { match[selected] = []; }
+        match[selected].push(key);
+    }
     fs.writeFile(path.resolve(__dirname, '..', 'character_map.json'), JSON.stringify(match, null, 4), function(err) {
         var end = Date.now();
         var diff = end - start;
