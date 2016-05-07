@@ -6,7 +6,6 @@
 
 > http://gabrielcsapo.github.io/saywhat/
 
-
 ## Usage
 
 > encode
