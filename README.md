@@ -1,5 +1,11 @@
 # saywhat  
+
+[![Build Status](https://travis-ci.org/gabrielcsapo/saywhat.svg?branch=master)](https://travis-ci.org/gabrielcsapo/saywhat)
+[![Dependency Status](https://david-dm.org/gabrielcsapo/saywhat.svg)](https://david-dm.org/gabrielcsapo/saywhat)
+[![devDependency Status](https://david-dm.org/gabrielcsapo/saywhat/dev-status.svg)](https://david-dm.org/gabrielcsapo/saywhat#info=devDependencies)
+
 > http://gabrielcsapo.github.io/saywhat/
+
 
 ## Usage
 
