@@ -3,10 +3,10 @@ var character_map = require('./character_map.json');
 
 // TODO: ew
 var splitEmojis = function (str) {
-  split = str.split(/([\uD800-\uDBFF][\uDC00-\uDFFF])/);
-  arr = [];
+  var split = str.split(/([\uD800-\uDBFF][\uDC00-\uDFFF])/);
+  var arr = [];
   for (var i=0; i<split.length; i++) {
-    char = split[i]
+    var char = split[i]
     if (char !== "") {
       arr.push(char);
     }
@@ -21,8 +21,6 @@ var Say = {
         var out = "";
         var check = [];
         raw.forEach(function(val) {
-            console.log(val);
-            console.log(val.length);
             if(val.length > 2) {
                 val.split('').forEach(function(v){
                     check.push(v);
