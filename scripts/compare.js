@@ -22,13 +22,13 @@ var compare = function(file1, file2, letter, character, callback, tolerance) {
     var _file2 = path.resolve('output', file2 + '.png')
 
     var options = {
-        file: path.resolve('output', 'diff', letter + '-' + character + '.png'),
-        tolerance: 0.02
+        file: path.resolve('output', 'diff', letter + '-' + character + '.png')
     };
 
     tolerance = tolerance ? tolerance : 0.016;
 
-    gm.compare(_file1, _file2, options, function(err, isEqual, equality) {
+    gm.compare(_file1, _file2, function(err, isEqual, equality, raw) {
+        // console.log(letter, '<>', character, ' ', equality);
         if(!err) {
             if (equality.toFixed(3) <= tolerance) {
                 if (match[letter]) {
@@ -72,8 +72,9 @@ async.parallelLimit([
                 if(operator) {
                     compare('alphabet_lower/' + alphabet_lower, 'emoji/' + operator, alphabet_lower, operator, function() {
                         callback();
-                    }, 0.14);
+                    }, 0.1);
                 } else {
+                    console.log('done ', alphabet_lower)
                     callback();
                 }
             }, function() {
@@ -83,7 +84,7 @@ async.parallelLimit([
             next();
         });
     }
-], 1, function() {
+], 2, function() {
     fs.writeFile(path.resolve(__dirname, '..', 'character_map.json'), JSON.stringify(match, null, 4), function(err) {
         var end = Date.now();
         var diff = end - start;
