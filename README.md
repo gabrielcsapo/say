@@ -23,6 +23,7 @@ Say.decode('👬𐎛👡└💞'); // hello
 
 ```bash
 npm run build;
+npm run compile;
 ```
 
 This will screenshot all characters in `/scripts/symbols.js` and output them to the output folder. Once this is done, it will do a visual diff to find the likeness of those characters.

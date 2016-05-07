@@ -4,6 +4,7 @@
   "description": "when words are simply not enough",
   "main": "saywhat.js",
   "scripts": {
+    "compile": "browserify saywhat.js -o dist/saywhat.js",
     "build": "node ./scripts/build.js; npm run compare;",
     "compare": "node ./scripts/compare.js"
   },
