@@ -13,14 +13,22 @@
 
 ```javascript
 var Say = require('saywhat');
-Say.encode('hello'); // 👬𐎛👡└💞
+Say.encode('hello'); // 💇⋗⊕∳≅
 ```
 
 > decode
 
 ```javascript
 var Say = require('saywhat');
-Say.decode('👬𐎛👡└💞'); // hello
+Say.decode('💇⋗⊕∳≅'); // hello
+```
+
+> It works with numbers and letters!
+
+```javascript
+var Say = require('saywhat');
+Say.encode('12345 I see you'); // ≴🍹👈⋒🌪 ⋳ ⋆≟≛ y⊷∬
+Say.decode('≴🍹👈⋒🌪 ⋳ ⋆≟≛ y⊷∬') // 12345 i see you
 ```
 
 ## Contributions
