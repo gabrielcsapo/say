@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.org/gabrielcsapo/saywhat.svg?branch=master)](https://travis-ci.org/gabrielcsapo/saywhat)
 [![Dependency Status](https://david-dm.org/gabrielcsapo/saywhat.svg)](https://david-dm.org/gabrielcsapo/saywhat)
 [![devDependency Status](https://david-dm.org/gabrielcsapo/saywhat/dev-status.svg)](https://david-dm.org/gabrielcsapo/saywhat#info=devDependencies)
+[![npm](https://img.shields.io/npm/dt/saywhat.svg?maxAge=2592000)]()
+[![npm](https://img.shields.io/npm/dm/saywhat.svg?maxAge=2592000)]()
 
 > http://gabrielcsapo.github.io/saywhat/
 
