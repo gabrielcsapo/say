@@ -8,6 +8,8 @@
 
 > http://gabrielcsapo.github.io/saywhat/
 
+> this is a text encoder and decoder, currently only works with utf8 values
+
 ## Usage
 
 > encode
