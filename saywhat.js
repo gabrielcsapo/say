@@ -1,11 +1,10 @@
-
 var character_map = require('./character_map.json');
 var spliddit = require('spliddit');
 
 var Say = {
     // TODO: clean this up
     decode: function(input) {
-        var raw = spliddit(input)
+        var raw = spliddit(input);
         var out = "";
         var check = [];
         raw.forEach(function(val) {
@@ -13,13 +12,13 @@ var Say = {
         });
         check.forEach(function(letter) {
             var val;
-            for(var key in character_map) {
-                if(character_map[key].indexOf(letter) > -1) {
+            for (var key in character_map) {
+                if (character_map[key].indexOf(letter) > -1) {
                     val = key;
                     out += key;
                 }
             }
-            if(!val) {
+            if (!val) {
                 out += letter;
             }
         });
@@ -28,7 +27,7 @@ var Say = {
     encode: function(input) {
         var out = "";
         input.split('').forEach(function(letter) {
-            if(letter.match(/[a-z]/i)) {
+            if (letter.match(/[a-z]/i)) {
                 letter = letter.toLowerCase();
             }
             var length = character_map[letter] ? character_map[letter].length : 0;
@@ -44,10 +43,4 @@ var Say = {
     }
 }
 
-if (typeof window === "object") {
-     window.Say = Say;
-} else if (typeof module === "object" && typeof module.exports === "object" ) {
-    module.exports = Say;
-} else {
-    return Say;
-}
+module.exports = Say;
