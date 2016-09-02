@@ -40,4 +40,18 @@ describe('saywhat', function() {
         assert.equal(decoded, string);
     });
 
+    it('should work with \'', function() {
+        var string = "when words aren't enough";
+        var text = Say.encode(string);
+        var decoded = Say.decode(text);
+        assert.equal(decoded, string);
+    });
+
+    it('should work with \"', function() {
+        var string = 'when words aren\"t enough';
+        var text = Say.encode(string);
+        var decoded = Say.decode(text);
+        assert.equal(decoded, string);
+    });
+
 });
