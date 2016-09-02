@@ -31,7 +31,7 @@ Say.decode('💇⋗⊕∳≅'); // hello
 ```javascript
 var Say = require('saywhat');
 Say.encode('12345 I see you'); // ≴🍹👈⋒🌪 ⋳ ⋆≟≛ y⊷∬
-Say.decode('≴🍹👈⋒🌪 ⋳ ⋆≟≛ y⊷∬') // 12345 i see you
+Say.decode('≴🍹👈⋒🌪 ⋳ ⋆≟≛ y⊷∬'); // 12345 i see you
 ```
 
 ## Contributions
