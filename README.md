@@ -6,8 +6,6 @@
 [![npm](https://img.shields.io/npm/dt/saywhat.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/dm/saywhat.svg?maxAge=2592000)]()
 
-> http://gabrielcsapo.github.io/saywhat/
-
 > this is a text encoder and decoder, currently only works with utf8 values
 
 If you are interesting in using this in the browser please make sure to set `<meta charset="utf-8">`.
