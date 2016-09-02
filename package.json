@@ -23,21 +23,16 @@
     "ace-builds": "^1.2.5",
     "async": "^2.0.1",
     "chai": "^3.5.0",
-    "eslint": "^3.4.0",
-    "gm": "^1.23.0",
+    "eslint": "^3.1.1",
+    "gm": "^1.22.0",
     "grunt": "^1.0.1",
-    "grunt-contrib-pug": "^1.0.0",
     "grunt-screenshot": "^0.6.0",
     "html2png": "^1.1.2",
-    "jquery": "^3.1.0",
-    "mocha": "^3.0.2",
+    "mocha": "^3.0.1",
     "phantomjs": "^2.1.7",
     "progress": "^1.1.8",
     "psychic-ui": "^0.4.0",
     "spliddit": "^2.1.1",
     "typed.js": "^1.1.1"
-  },
-  "dependencies": {
-    "progress": "^1.1.8"
   }
 }
