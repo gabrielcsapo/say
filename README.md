@@ -10,6 +10,8 @@
 
 > this is a text encoder and decoder, currently only works with utf8 values
 
+If you are interesting in using this in the browser please make sure to set `<meta charset="utf-8">`.
+
 ## Usage
 
 > encode
