@@ -4,6 +4,7 @@
   "description": "when words are simply not enough",
   "main": "saywhat.js",
   "scripts": {
+    "coverage": "istanbul cover _mocha",
     "test": "eslint .;./node_modules/.bin/mocha;",
     "compile": "browserify -r ./saywhat.js:saywhat > dist/saywhat.js",
     "build": "node ./scripts/build.js; sh ./scripts/convert_emojis_to_black.sh; npm run compare;",
@@ -28,6 +29,7 @@
     "grunt": "^1.0.1",
     "grunt-screenshot": "^0.6.0",
     "html2png": "^1.1.2",
+    "istanbul": "^0.4.5",
     "mocha": "^3.0.1",
     "phantomjs": "^2.1.7",
     "progress": "^1.1.8",
