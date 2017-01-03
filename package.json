@@ -4,7 +4,7 @@
   "description": "when words are simply not enough",
   "main": "saywhat.js",
   "scripts": {
-    "coverage": "tap test --coverage-report=lcov",
+    "coverage": "tap test --coverage",
     "test": "npm run lint;./node_modules/.bin/tape test;",
     "lint": "eslint .;",
     "compile": "browserify -r ./saywhat.js:saywhat > dist/saywhat.js",
