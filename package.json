@@ -4,9 +4,9 @@
   "description": "when words are simply not enough",
   "main": "saywhat.js",
   "scripts": {
-    "coverage": "istanbul cover _mocha",
-    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "test": "eslint .;./node_modules/.bin/mocha;",
+    "coverage": "tap test --coverage",
+    "test": "npm run lint;./node_modules/.bin/tape test;",
+    "lint": "eslint .;",
     "compile": "browserify -r ./saywhat.js:saywhat > dist/saywhat.js",
     "build": "node ./scripts/build.js; sh ./scripts/convert_emojis_to_black.sh; npm run compare;",
     "compare": "node ./scripts/compare.js"
@@ -23,21 +23,19 @@
   "homepage": "https://github.com/gabrielcsapo/saywhat#readme",
   "devDependencies": {
     "ace-builds": "^1.2.5",
-    "async": "^2.0.1",
-    "chai": "^3.5.0",
-    "coveralls": "^2.11.14",
-    "eslint": "^3.1.1",
+    "async": "^2.1.4",
+    "eslint": "^3.12.2",
     "gm": "^1.22.0",
     "grunt": "^1.0.1",
     "grunt-screenshot": "^0.6.0",
     "html2png": "^1.1.2",
     "istanbul": "^0.4.5",
-    "mocha": "^3.0.1",
-    "mocha-lcov-reporter": "^1.2.0",
     "phantomjs": "^2.1.7",
     "progress": "^1.1.8",
     "psychic-ui": "^0.4.0",
     "spliddit": "^2.1.1",
+    "tap": "^8.0.1",
+    "tape": "^4.6.3",
     "typed.js": "^1.1.1"
   }
 }

@@ -1,5 +1,7 @@
 sudo: required
 language: node_js
-script: npm run coveralls
+script:
+  - npm run test 
+  - npm run coverage
 node_js:
   - "4"
