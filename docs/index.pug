@@ -3,7 +3,6 @@ html
     head
         meta(charset="utf-8")
         title saywhat
-        script(src="../dist/saywhat.js")
         style.
             div.codeblock-editor-wrapper {
                 height: 275.00000000000003px !important;
@@ -35,6 +34,8 @@ html
             }
         style
             include ../node_modules/psychic-ui/dist/psychic-min.css
+        script
+          include ../dist/saywhat.js
         script
             include ../node_modules/jquery/dist/jquery.js
         script

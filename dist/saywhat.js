@@ -1110,13 +1110,13 @@ var Say = {
         });
         check.forEach(function(letter) {
             var val;
-            for(var key in character_map) {
-                if(character_map[key].indexOf(letter) > -1) {
+            for (var key in character_map) {
+                if (character_map[key].indexOf(letter) > -1) {
                     val = key;
                     out += key;
                 }
             }
-            if(!val) {
+            if (!val) {
                 out += letter;
             }
         });
@@ -1125,7 +1125,7 @@ var Say = {
     encode: function(input) {
         var out = "";
         input.split('').forEach(function(letter) {
-            if(letter.match(/[a-z]/i)) {
+            if (letter.match(/[a-z]/i)) {
                 letter = letter.toLowerCase();
             }
             var length = character_map[letter] ? character_map[letter].length : 0;
