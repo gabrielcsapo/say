@@ -38,8 +38,8 @@ var bar = new ProgressBar('building [:bar] :percent :etas', {
     total: (Symbols.alphabet_upper.length + Symbols.alphabet_lower.length + Symbols.emoji.length + Symbols.mathamatical_operators.length)
 });
 
-// rasterize(Symbols.alphabet_upper, 'alphabet_upper');
-// rasterize(Symbols.alphabet_lower, 'alphabet_lower');
+rasterize(Symbols.alphabet_upper, 'alphabet_upper');
+rasterize(Symbols.alphabet_lower, 'alphabet_lower');
 rasterize(Symbols.emoji, 'emoji');
-// rasterize(Symbols.mathamatical_operators, 'mathamatical_operators');
-// rasterize(Symbols.numbers, 'numbers');
+rasterize(Symbols.mathamatical_operators, 'mathamatical_operators');
+rasterize(Symbols.numbers, 'numbers');

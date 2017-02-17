@@ -35,6 +35,10 @@ Say.encode('12345 I see you'); // ≴🍹👈⋒🌪 ⋳ ⋆≟≛ y⊷∬
 Say.decode('≴🍹👈⋒🌪 ⋳ ⋆≟≛ y⊷∬'); // 12345 i see you
 ```
 
+# What is this?
+
+This takes all known unicode characters and compares them against emojis and other symbols to find which emojis or characters most look alike. So for example if you wanted to see what hello would look like in encoded it might generate `💇⋗⊕∳≅`.
+
 ## Contributions
 
 > help with the comparing of the likeness of symbols!
@@ -47,3 +51,8 @@ npm run coverage;
 ```
 
 This will screenshot all characters in `/scripts/symbols.js` and output them to the output folder. Once this is done, it will do a visual diff to find the likeness of those characters.
+
+# Building
+
+- You must have phantomjs installed globally `npm install phantomjs -g`
+- You must have graphicsmagick installed `brew install graphicsmagick`
