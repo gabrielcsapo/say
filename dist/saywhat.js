@@ -1096,14 +1096,14 @@ var spliddit = require('spliddit');
 
 var Say = {
     // TODO: clean this up
-    decode: function(input) {
+    decode: function decode(input) {
         var raw = spliddit(input);
         var out = "";
         var check = [];
-        raw.forEach(function(val) {
+        raw.forEach((val) => {
             check.push(val);
         });
-        check.forEach(function(letter) {
+        check.forEach((letter) => {
             var val;
             for (var key in character_map) {
                 if (character_map[key].indexOf(letter) > -1) {
@@ -1117,9 +1117,9 @@ var Say = {
         });
         return out;
     },
-    encode: function(input) {
+    encode: function encode(input) {
         var out = "";
-        input.split('').forEach(function(letter) {
+        input.split('').forEach((letter) => {
             if (letter.match(/[a-z]/i)) {
                 letter = letter.toLowerCase();
             }
