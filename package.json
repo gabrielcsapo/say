@@ -7,9 +7,10 @@
     "coverage": "tap test --coverage --coverage-report=lcov",
     "test": "npm run lint;./node_modules/.bin/tape test;",
     "lint": "eslint .;",
-    "compile": "browserify -r ./saywhat.js:saywhat > dist/saywhat.js; grunt pug;",
+    "compile": "browserify -r ./saywhat.js:saywhat > dist/saywhat.js;",
     "build": "node ./scripts/build.js; sh ./scripts/convert_emojis_to_black.sh; npm run compare;",
-    "compare": "node ./scripts/compare.js"
+    "compare": "node ./scripts/compare.js",
+    "generate-docs": "tryitout"
   },
   "repository": {
     "type": "git",
@@ -22,21 +23,16 @@
   },
   "homepage": "https://github.com/gabrielcsapo/saywhat#readme",
   "devDependencies": {
-    "ace-builds": "^1.2.6",
     "async": "^2.4.1",
     "browserify": "^14.3.0",
-    "eslint": "^3.19.0",
     "gm": "^1.22.0",
-    "grunt": "^1.0.1",
-    "grunt-contrib-pug": "^1.0.0",
-    "grunt-screenshot": "^0.6.0",
     "html2png": "^1.1.2",
     "jquery": "^3.2.1",
     "progress": "^2.0.0",
-    "psychic-ui": "^1.0.6",
     "spliddit": "^2.1.1",
     "tap": "^10.3.2",
     "tape": "^4.6.3",
+    "tryitout": "0.0.2",
     "typed.js": "^1.1.1"
   }
 }
