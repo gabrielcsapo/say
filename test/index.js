@@ -56,8 +56,8 @@ test('saywhat', function(t) {
         t.end();
     });
 
-    t.test('should work with \"', function(t) {
-        var string = 'when words aren\"t enough';
+    t.test('should work with "', function(t) {
+        var string = 'when words aren"t enough';
         var text = Say.encode(string);
         var decoded = Say.decode(text);
         t.equal(decoded, string);
