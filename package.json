@@ -5,7 +5,7 @@
   "main": "saywhat.js",
   "scripts": {
     "coverage": "tap test --coverage --coverage-report=lcov",
-    "test": "npm run lint;./node_modules/.bin/tape test;",
+    "test": "tape test;",
     "lint": "eslint .;",
     "compile": "browserify -r ./saywhat.js:saywhat > dist/saywhat.js;",
     "build": "node ./scripts/build.js; sh ./scripts/convert_emojis_to_black.sh; npm run compare;",
@@ -23,17 +23,15 @@
   },
   "homepage": "https://github.com/gabrielcsapo/saywhat#readme",
   "devDependencies": {
-    "async": "^2.4.1",
+    "async": "^2.5.0",
     "browserify": "^14.3.0",
-    "eslint": "^4.3.0",
+    "eslint": "^4.7.1",
     "gm": "^1.22.0",
     "html2png": "^1.1.2",
-    "jquery": "^3.2.1",
     "progress": "^2.0.0",
     "spliddit": "^2.1.1",
-    "tap": "^10.3.2",
-    "tape": "^4.6.3",
-    "tryitout": "0.0.4",
-    "typed.js": "^2.0.4"
+    "tap": "^10.7.2",
+    "tape": "^4.8.0",
+    "tryitout": "^0.1.3"
   }
 }
