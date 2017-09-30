@@ -1,11 +1,9 @@
 # saywhat  
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/gabrielcsapo/saywhat.svg)](https://greenkeeper.io/)
-
 [![Build Status](https://travis-ci.org/gabrielcsapo/saywhat.svg?branch=master)](https://travis-ci.org/gabrielcsapo/saywhat)
 [![Dependency Status](https://david-dm.org/gabrielcsapo/saywhat.svg)](https://david-dm.org/gabrielcsapo/saywhat)
 [![devDependency Status](https://david-dm.org/gabrielcsapo/saywhat/dev-status.svg)](https://david-dm.org/gabrielcsapo/saywhat#info=devDependencies)
-[![Coverage Status](https://coveralls.io/repos/github/gabrielcsapo/saywhat/badge.svg?branch=master)](https://coveralls.io/github/gabrielcsapo/saywhat?branch=master)
+[![Coverage Status](https://lcov-server.herokuapp.com/badge/github%2Ecom/gabrielcsapo/saywhat.svg)](https://lcov-server.herokuapp.com/coverage/github%2Ecom/gabrielcsapo/saywhat)
 [![npm](https://img.shields.io/npm/dt/saywhat.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/dm/saywhat.svg?maxAge=2592000)]()
 

@@ -2,7 +2,9 @@ module.exports = {
     output: "./docs",
     title: "saywhat",
     description: "When letters are not enough",
-    source: "https://github.com/gabrielcsapo/saywhat",
+    nav: {
+      Source: "https://github.com/gabrielcsapo/saywhat"
+    },
     body: [{
         type: "text",
         value: "This takes all known unicode characters and compares them against emojis and other symbols to find which emojis or characters most look alike. So for example if you wanted to see what hello would look like in encoded it might generate `💇⋗⊕∳≅`."
