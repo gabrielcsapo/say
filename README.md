@@ -1,9 +1,9 @@
 # saywhat  
 
 [![Build Status](https://travis-ci.org/gabrielcsapo/saywhat.svg?branch=master)](https://travis-ci.org/gabrielcsapo/saywhat)
-[![Dependency Status](https://david-dm.org/gabrielcsapo/saywhat.svg)](https://david-dm.org/gabrielcsapo/saywhat)
-[![devDependency Status](https://david-dm.org/gabrielcsapo/saywhat/dev-status.svg)](https://david-dm.org/gabrielcsapo/saywhat#info=devDependencies)
-[![Coverage Status](https://lcov-server.herokuapp.com/badge/github%2Ecom/gabrielcsapo/saywhat.svg)](https://lcov-server.herokuapp.com/coverage/github%2Ecom/gabrielcsapo/saywhat)
+[![Dependency Status](https://starbuck.gabrielcsapo.com/badge/github/gabrielcsapo/saywhat/status.svg)](https://starbuck.gabrielcsapo.com/github/gabrielcsapo/saywhat)
+[![devDependency Status](https://starbuck.gabrielcsapo.com/badge/github/gabrielcsapo/saywhat/dev-status.svg)](https://starbuck.gabrielcsapo.com/github/gabrielcsapo/saywhat#info=devDependencies)
+[![Coverage Status](https://lcov-server.gabrielcsapo.com/badge/github%2Ecom/gabrielcsapo/saywhat.svg)](https://lcov-server.gabrielcsapo.com/coverage/github%2Ecom/gabrielcsapo/saywhat)
 [![npm](https://img.shields.io/npm/dt/saywhat.svg?maxAge=2592000)]()
 [![npm](https://img.shields.io/npm/dm/saywhat.svg?maxAge=2592000)]()
 
