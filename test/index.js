@@ -1,5 +1,5 @@
-var test = require('tape').test;
-var Say = require('../saywhat.js');
+const test = require('tape');
+const Say = require('../');
 
 test('saywhat', function(t) {
     t.plan(9);
@@ -64,5 +64,4 @@ test('saywhat', function(t) {
         t.end();
     });
 
-    t.end();
 });

@@ -1,7 +1,7 @@
 {
   "name": "saywhat",
-  "version": "0.4.0",
-  "description": "when words are simply not enough",
+  "version": "1.0.0",
+  "description": "💬 a library that replaces alphabetical characters with similarly shaped symbols",
   "author": "Gabriel J. Csapo <gabecsapo@gmail.com>",
   "license": "Apache 2.0",
   "repository": {
@@ -17,24 +17,27 @@
     "coverage": "tap test --coverage --coverage-report=lcov",
     "test": "tape test;",
     "lint": "eslint .;",
-    "compile": "browserify -r ./saywhat.js:saywhat > dist/saywhat.js;",
-    "build": "node ./scripts/build.js; sh ./scripts/convert_emojis_to_black.sh; npm run compare;",
-    "compare": "node ./scripts/compare.js",
+    "build": "browserify -r ./index.js:saywhat -t [ brfs ] -t [ babelify --presets [ env ]]  > dist/saywhat.js && minify dist/saywhat.js --out-file dist/saywhat.min.js",
+    "compile": "node ./scripts/build.js; sh ./scripts/convert_emojis_to_black.sh; node ./scripts/compare.js",
     "generate-docs": "tryitout"
   },
   "engines": {
     "node": ">= 6"
   },
   "devDependencies": {
-    "async": "^2.5.0",
-    "browserify": "^14.3.0",
-    "eslint": "^4.8.0",
-    "gm": "^1.22.0",
-    "html2png": "^1.1.2",
-    "progress": "^2.0.0",
-    "spliddit": "^2.1.1",
-    "tap": "^10.7.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-minify": "^0.2.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "brfs": "^1.4.3",
+    "browserify": "^14.5.0",
+    "eslint": "^4.13.1",
+    "tap": "^11.0.0",
     "tape": "^4.8.0",
-    "tryitout": "^0.2.1"
+    "tryitout": "^1.2.2"
+  },
+  "dependencies": {
+    "runes": "^0.4.3"
   }
 }

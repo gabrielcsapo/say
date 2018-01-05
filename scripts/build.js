@@ -1,45 +1,65 @@
-var fs = require('fs');
-var path = require('path');
-var async = require('async');
-var html2png = require('html2png');
-var ProgressBar = require('progress');
+const fs = require('fs');
+const path = require('path');
+const Symbols = require('./symbols');
 
-var Symbols = require('./symbols');
+const { emoji, alphabet_lower, alphabet_upper, numbers, mathamatical_operators } = Symbols;
 
-var rasterize = function(array, type) {
-    async.forEachOf(array, function(value, index, callback) {
-        try {
-            var screenshot = html2png({
-                width: 512,
-                height: 512,
-                browser: 'phantomjs'
-            });
-            screenshot.render('<html><head></head><body><div style="margin-top:65px;text-align:center;font-size:500px;vertical-align:middle;width:100%;height:100%;">' + value + '</div></body></html', function(err, data) {
-                if (err) return screenshot.error(err, function() {
-                    throw err;
-                });
-                fs.writeFile(path.resolve('output', type, value + '.png'), data.toString('base64'), 'base64', function(err) {
-                    if(err) { throw err; }
-                    bar.tick();
-                    screenshot.close(callback);
-                });
-            });
-        } catch (ex) {
-            bar.tick();
-            callback();
-        }
-    })
+let entry = {};
+
+function compare(e, a) {
+  let val = a.charCodeAt(0);
+  let mapVal = 0;
+  for(var i = 0; i < e.length; i++) {
+    mapVal += e.charCodeAt(i);
+  }
+
+  let diff = Math.floor(mapVal / val).toString();
+  // find the value closest to the last three digits
+  let closest = parseInt(diff.substr(diff.length - 2, diff.length));
+  let baseClosest = parseInt(val.toString().substr(val.toString().length - 2, val.toString().length));
+
+  return { char: a, dev: closest - baseClosest };
 }
 
-var bar = new ProgressBar('building [:bar] :percent :etas', {
-    width: 20,
-    complete: '=',
-    incomplete: ' ',
-    total: (Symbols.alphabet_upper.length + Symbols.alphabet_lower.length + Symbols.emoji.length + Symbols.mathamatical_operators.length)
+alphabet_upper.forEach((a) => {
+  emoji.forEach((e) => {
+    if(!entry[e]) entry[e] = [];
+    entry[e].push(compare(e, a));
+  });
+  mathamatical_operators.forEach((e) => {
+    if(!entry[e]) entry[e] = [];
+    entry[e].push(compare(e, a));
+  });
+});
+numbers.forEach((a) => {
+  emoji.forEach((e) => {
+    if(!entry[e]) entry[e] = [];
+    entry[e].push(compare(e, a));
+  });
+  mathamatical_operators.forEach((e) => {
+    if(!entry[e]) entry[e] = [];
+    entry[e].push(compare(e, a));
+  });
+});
+alphabet_lower.forEach((a) => {
+  emoji.forEach((e) => {
+    if(!entry[e]) entry[e] = [];
+    entry[e].push(compare(e, a));
+  });
+  mathamatical_operators.forEach((e) => {
+    if(!entry[e]) entry[e] = [];
+    entry[e].push(compare(e, a));
+  });
 });
 
-rasterize(Symbols.alphabet_upper, 'alphabet_upper');
-rasterize(Symbols.alphabet_lower, 'alphabet_lower');
-rasterize(Symbols.emoji, 'emoji');
-rasterize(Symbols.mathamatical_operators, 'mathamatical_operators');
-rasterize(Symbols.numbers, 'numbers');
+let map = {};
+
+Object.keys(entry).forEach((k) => {
+  let winner = entry[k].reduce(function(prev, curr) {
+    return (Math.abs(curr.dev - 0) < Math.abs(prev.dev - 0) ? curr : prev);
+  });
+  if(!map[winner.char]) map[winner.char] = [];
+  map[winner.char].push(k);
+});
+
+fs.writeFileSync(path.resolve(__dirname, '..', 'map.json'), JSON.stringify(map));
