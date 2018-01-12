@@ -1,4 +1,8 @@
-# 1.0.0 (01/01/04)
+# 1.0.1 (01/12/2018)
+
+- fixes the package.json's main attribute
+
+# 1.0.0 (01/01/2018)
 
 - updates build scripts
 - cleans up logic

@@ -1,6 +1,6 @@
 {
   "name": "saywhat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "💬 a library that replaces alphabetical characters with similarly shaped symbols",
   "author": "Gabriel J. Csapo <gabecsapo@gmail.com>",
   "license": "Apache 2.0",
@@ -12,7 +12,7 @@
     "url": "https://github.com/gabrielcsapo/saywhat/issues"
   },
   "homepage": "https://github.com/gabrielcsapo/saywhat#readme",
-  "main": "saywhat.js",
+  "main": "index.js",
   "scripts": {
     "coverage": "tap test --coverage --coverage-report=lcov",
     "test": "tape test;",
@@ -31,11 +31,11 @@
     "babel-preset-env": "^1.6.1",
     "babelify": "^8.0.0",
     "brfs": "^1.4.3",
-    "browserify": "^14.5.0",
-    "eslint": "^4.13.1",
+    "browserify": "^15.1.0",
+    "eslint": "^4.15.0",
     "tap": "^11.0.0",
     "tape": "^4.8.0",
-    "tryitout": "^1.2.2"
+    "tryitout": "^2.0.4"
   },
   "dependencies": {
     "runes": "^0.4.3"
